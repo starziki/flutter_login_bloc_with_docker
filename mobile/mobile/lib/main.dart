@@ -77,7 +77,6 @@ class _MyLoginPage extends StatelessWidget {
     );
   }
 }
-
 class Register extends StatefulWidget {
   @override
   _RegisterState createState() => _RegisterState();
