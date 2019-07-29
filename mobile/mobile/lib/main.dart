@@ -51,8 +51,18 @@ class _MyLoginPage extends StatelessWidget {
               controller: _pwdController,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
+                RaisedButton( 
+                  child: Text('회원가입'),
+                  onPressed: () {
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Register()),
+                    );
+                  }
+                ),
                 RaisedButton(
                   child: Text('Login'),
                   onPressed: () {
@@ -64,6 +74,20 @@ class _MyLoginPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class Register extends StatefulWidget {
+  @override
+  _RegisterState createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
     );
   }
 }
