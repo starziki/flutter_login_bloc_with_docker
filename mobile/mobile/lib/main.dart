@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile/provider.dart';
+import 'package:mobile/register.dart';
 import 'package:mobile/user.dart';
 
 void main() => runApp(
@@ -36,8 +37,17 @@ class _MyLoginPage extends StatelessWidget {
       pwd: pwd
     ));
   }
+
+  _registerProc(context) {
+    // TODO Register
+    Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => Register()));
+  }
+
   @override
   Widget build(BuildContext context) {
+    final bloc = Provider.of(context);
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -51,17 +61,21 @@ class _MyLoginPage extends StatelessWidget {
               controller: _pwdController,
             ),
             Row(
-
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                RaisedButton( 
-                  child: Text('회원가입'),
+                // StreamBuilder<bool>(
+                //   stream: bloc.login,
+                //   builder: (context, AsyncSnapshot<bool> snapshot) {
+                //     final isLogin = snapshot.data ?? false;
+                //     return Text(isLogin ? '로그인 성공' : '로그인 실패');
+                //   }
+                // ),
+                RaisedButton(
+                  child: Text('Register'),
+                  color: Colors.redAccent,
                   onPressed: () {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Register()),
-                    );
-                  }
+                    _registerProc(context);
+                  },
                 ),
                 RaisedButton(
                   child: Text('Login'),
